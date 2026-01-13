@@ -1,4 +1,4 @@
-"""Sparkle Dashboard  by Anedya"""
+"""Nagpur Dashboard  by Anedya"""
 
 import streamlit as st
 import os
@@ -69,19 +69,29 @@ def drawLogin():
         ]
     }
     st.navigation(pages,position="hidden")
-
-    cols = st.columns([1, 1.5, 1], gap="small")
-    with cols[0]:
-        pass
+    cols = st.columns([1, 1.3, 1], gap="large",vertical_alignment="center")
     with cols[1]:
-            st.title("Sparkle Dashboard Login", anchor=False)
-            username_inp = st.text_input("Email").strip()
-            password_inp = st.text_input("Password", type="password").strip()
-            submit_button = st.button(label="Submit")
-            if submit_button:
-                username_inp = username_inp
-                check_credentials(username_inp, password_inp)
-                print()
+        st.title(DASHBOARD_NAME,anchor=False)
+
+    cols1 = st.columns([1, 1.5, 1], gap="small")
+    with cols1[0]:
+        pass
+    with cols1[1]:
+            container = st.container(border=True)
+            with container:
+                cols1_1 = st.columns([1, 1.2, 1], gap="large")
+                with cols1_1[1]:
+                    st.subheader("Dashboard Login", anchor=False)
+                username_inp = st.text_input("Email").strip()
+                password_inp = st.text_input("Password", type="password").strip()
+                cols1_2 = st.columns([1, 0.7,1], gap="large")
+                with cols1_2[1]:
+                    st.text("")
+                    submit_button = st.button(label="Submit",use_container_width=True)
+                if submit_button:
+                    username_inp = username_inp
+                    check_credentials(username_inp, password_inp)
+                    print()
             
 
 def check_credentials(username,password):

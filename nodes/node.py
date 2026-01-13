@@ -12,7 +12,6 @@ from cloud.anedya_cloud import Anedya
 
 import os
 
-
 def draw_unit_1_dashboard():
 
     file_name = os.path.basename(__file__).split(".")[0]
